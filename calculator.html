@@ -1,115 +1,155 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SwimCalc | Points Calculator</title>
-    <link rel="stylesheet" href="styles.css">
-    <script type="module" src="translations.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FINA Points Calculator</title>
+  <link rel="stylesheet" href="styles.css">
+  <script type="module" src="script.js" defer></script>
 </head>
 <body>
-    <div class="app-container">
-        <nav class="navbar">
-            <div class="logo">
-                <i class="fas fa-swimming-pool"></i>
-                <span>SwimCalc</span>
-            </div>
-            <ul class="nav-links">
-                <li><a href="about.html">About</a></li>
-                <li><a href="calculator.html" class="active">Calculator</a></li>
-                <li><a href="personal-bests.html">Personal Bests</a></li>
-            </ul>
-            <div class="nav-controls">
-                <select id="language-select" class="language-select">
-                    <option value="en">English</option>
-                    <option value="he">עברית</option>
-                </select>
-                <div class="theme-toggle">
-                    <i class="fas fa-moon"></i>
-                </div>
-            </div>
-        </nav>
-
-        <main class="calculator-section">
-            <div class="section-header">
-                <h1 id="calculator-title">Points Calculator</h1>
-                <p id="calculator-description">Enter your swimming time to calculate points</p>
-            </div>
-
-            <div class="calculator-form">
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="gender">Gender</label>
-                        <select id="gender">
-                            <option value="male">Male</option>
-                            <option value="female">Female</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="course">Course</label>
-                        <select id="course">
-                            <option value="lcm">Long Course (50m)</option>
-                            <option value="scm">Short Course (25m)</option>
-                        </select>
-                    </div>
-                </div>
-
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="stroke">Stroke</label>
-                        <select id="stroke">
-                            <option value="freestyle">Freestyle</option>
-                            <option value="backstroke">Backstroke</option>
-                            <option value="breaststroke">Breaststroke</option>
-                            <option value="butterfly">Butterfly</option>
-                            <option value="im">Individual Medley</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="distance">Distance</label>
-                        <select id="distance">
-                            <option value="50">50m</option>
-                            <option value="100">100m</option>
-                            <option value="200">200m</option>
-                            <option value="400">400m</option>
-                            <option value="800">800m</option>
-                            <option value="1500">1500m</option>
-                        </select>
-                    </div>
-                </div>
-
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="time">Time (MM:SS.HH)</label>
-                        <input type="text" id="time" placeholder="e.g., 1:05.45">
-                    </div>
-                </div>
-
-                <button id="calculate-btn" class="btn primary">Calculate Points</button>
-            </div>
-
-            <div class="results-section" style="display: none;">
-                <div class="comparison-info">
-                    <div class="comparison-item">
-                        <span class="label">World Record:</span>
-                        <span id="world-record" class="value">00:00.00</span>
-                    </div>
-                    <div class="comparison-item">
-                        <span class="label">Your Points:</span>
-                        <span id="points" class="value">0</span>
-                    </div>
-                    <div class="comparison-item">
-                        <span class="label">% of World Record</span>
-                        <span id="percentage" class="value">0%</span>
-                    </div>
-                </div>
-                <button id="save-btn" class="btn secondary">Save Result</button>
-            </div>
-        </main>
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo" data-i18n="home">Home</a>
+      <ul class="nav-links">
+        <li><a href="calculator.html" data-i18n="calculator">FINA Calculator</a></li>
+        <li><a href="personal-bests.html" data-i18n="personalBests">Personal Bests</a></li>
+      </ul>
+      <div class="controls">
+        <button class="theme-toggle" data-i18n="toggleTheme">Toggle theme</button>
+        <button class="lang-toggle" data-i18n="toggleLang">עברית</button>
+      </div>
     </div>
+  </nav>
 
-    <script type="module" src="script.js"></script>
+  <main class="main-content">
+    <div class="container">
+      <div class="card">
+        <h1 data-i18n="calcTitle">FINA Points Calculator</h1>
+        <p data-i18n="calcDesc">Calculate your FINA points based on your swimming time</p>
+
+        <form id="calculator-form" class="calculator-form">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="event" data-i18n="event">Event</label>
+              <select id="event" required class="form-control">
+                <option value="50free">50m Freestyle</option>
+                <option value="100free">100m Freestyle</option>
+                <option value="200free">200m Freestyle</option>
+                <option value="400free">400m Freestyle</option>
+                <option value="800free">800m Freestyle</option>
+                <option value="1500free">1500m Freestyle</option>
+                <option value="50back">50m Backstroke</option>
+                <option value="100back">100m Backstroke</option>
+                <option value="200back">200m Backstroke</option>
+                <option value="50breast">50m Breaststroke</option>
+                <option value="100breast">100m Breaststroke</option>
+                <option value="200breast">200m Breaststroke</option>
+                <option value="50fly">50m Butterfly</option>
+                <option value="100fly">100m Butterfly</option>
+                <option value="200fly">200m Butterfly</option>
+                <option value="200im">200m Individual Medley</option>
+                <option value="400im">400m Individual Medley</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="course" data-i18n="course">Course</label>
+              <select id="course" required class="form-control">
+                <option value="short" data-i18n="shortCourse">Short Course (25m)</option>
+                <option value="long" data-i18n="longCourse">Long Course (50m)</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="gender" data-i18n="gender">Gender</label>
+              <select id="gender" required class="form-control">
+                <option value="male" data-i18n="male">Male</option>
+                <option value="female" data-i18n="female">Female</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="time" data-i18n="time">Time (mm:ss.ms)</label>
+              <input type="text" id="time" class="form-control" placeholder="1:23.45" required pattern="^\d{1,2}:\d{2}\.\d{2}$|^\d{2}\.\d{2}$">
+            </div>
+          </div>
+
+          <button type="submit" class="btn" data-i18n="calculate">Calculate</button>
+        </form>
+
+        <div id="result" class="result-card" style="display: none;">
+          <div class="result-content">
+            <h3 data-i18n="points">FINA Points</h3>
+            <div class="result-points" id="points-value">0</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script type="module">
+    import { calculateFinaPoints, formatTime } from './script.js';
+
+    const form = document.getElementById('calculator-form');
+    const resultDiv = document.getElementById('result');
+    const pointsValue = document.getElementById('points-value');
+
+    const baseTimes = {
+      male: {
+        short: {
+          '50free': '20.24', '100free': '44.94', '200free': '1:39.37',
+          '400free': '3:32.25', '800free': '7:23.42', '1500free': '14:06.88',
+          '50back': '22.22', '100back': '48.33', '200back': '1:45.63',
+          '50breast': '25.25', '100breast': '55.61', '200breast': '2:00.16',
+          '50fly': '21.75', '100fly': '48.33', '200fly': '1:48.24',
+          '200im': '1:49.63', '400im': '3:54.81'
+        },
+        long: {
+          '50free': '20.91', '100free': '46.91', '200free': '1:42.00',
+          '400free': '3:40.07', '800free': '7:32.12', '1500free': '14:31.02',
+          '50back': '23.71', '100back': '51.85', '200back': '1:51.92',
+          '50breast': '25.95', '100breast': '56.88', '200breast': '2:05.95',
+          '50fly': '22.27', '100fly': '49.45', '200fly': '1:50.34',
+          '200im': '1:54.00', '400im': '4:03.84'
+        }
+      },
+      female: {
+        short: {
+          '50free': '23.10', '100free': '50.25', '200free': '1:50.43',
+          '400free': '3:53.92', '800free': '7:57.42', '1500free': '15:18.01',
+          '50back': '25.67', '100back': '54.89', '200back': '1:58.94',
+          '50breast': '28.56', '100breast': '1:02.36', '200breast': '2:14.57',
+          '50fly': '24.38', '100fly': '54.61', '200fly': '2:01.81',
+          '200im': '2:03.37', '400im': '4:21.04'
+        },
+        long: {
+          '50free': '23.67', '100free': '51.71', '200free': '1:52.98',
+          '400free': '3:56.08', '800free': '8:04.79', '1500free': '15:20.48',
+          '50back': '26.98', '100back': '57.45', '200back': '2:03.35',
+          '50breast': '29.30', '100breast': '1:04.13', '200breast': '2:19.11',
+          '50fly': '24.43', '100fly': '55.48', '200fly': '2:01.81',
+          '200im': '2:06.12', '400im': '4:26.09'
+        }
+      }
+    };
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const event = document.getElementById('event').value;
+      const course = document.getElementById('course').value;
+      const gender = document.getElementById('gender').value;
+      const time = document.getElementById('time').value;
+
+      const baseTime = baseTimes[gender][course][event];
+      const points = calculateFinaPoints(time, baseTime);
+
+      pointsValue.textContent = points;
+      resultDiv.style.display = 'block';
+      resultDiv.classList.add('show');
+    });
+  </script>
 </body>
 </html>
