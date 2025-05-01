@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SwimCalc | About Swimming Points</title>
+    <link rel="stylesheet" href="styles.css">
+    <script type="module" src="translations.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <nav class="navbar">
+            <div class="logo">
+                <i class="fas fa-swimming-pool"></i>
+                <span>SwimCalc</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="about.html" class="active">About</a></li>
+                <li><a href="calculator.html">Calculator</a></li>
+                <li><a href="personal-bests.html">Personal Bests</a></li>
+            </ul>
+            <div class="nav-controls">
+                <select id="language-select" class="language-select">
+                    <option value="en">English</option>
+                    <option value="he">עברית</option>
+                </select>
+                <div class="theme-toggle">
+                    <i class="fas fa-moon"></i>
+                </div>
+            </div>
+        </nav>
+
+        <main class="about-section">
+            <div class="section-header">
+                <h1 id="about-title">About Swimming Points</h1>
+                <p id="about-description">Understanding how swimming points are calculated</p>
+            </div>
+
+            <div class="content-container">
+                <div class="info-card">
+                    <h2 id="calculation-title">How Points Are Calculated</h2>
+                    <p id="calculation-description">Swimming points are calculated using the formula: 1000 × (Base Time / Actual Time)³. The base time is derived from the current world record for each event.</p>
+                </div>
+
+                <div class="info-card">
+                    <h2 id="world-records-title">World Records</h2>
+                    <p id="world-records-description">Our calculator uses the latest world records as base times for calculating points, ensuring accurate and up-to-date comparisons.</p>
+                </div>
+
+                <div class="info-card">
+                    <h2 id="progress-title">Track Your Progress</h2>
+                    <p id="progress-description">Use this calculator to track your swimming performance over time and set goals based on international standards.</p>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script type="module" src="script.js"></script>
+</body>
+</html>

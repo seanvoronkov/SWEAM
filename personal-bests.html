@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SwimCalc | Personal Bests</title>
+    <link rel="stylesheet" href="styles.css">
+    <script type="module" src="translations.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <nav class="navbar">
+            <div class="logo">
+                <i class="fas fa-swimming-pool"></i>
+                <span>SwimCalc</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="about.html">About</a></li>
+                <li><a href="calculator.html">Calculator</a></li>
+                <li><a href="personal-bests.html" class="active">Personal Bests</a></li>
+            </ul>
+            <div class="nav-controls">
+                <select id="language-select" class="language-select">
+                    <option value="en">English</option>
+                    <option value="he">עברית</option>
+                </select>
+                <div class="theme-toggle">
+                    <i class="fas fa-moon"></i>
+                </div>
+            </div>
+        </nav>
+
+        <main class="pbs-section">
+            <div class="section-header">
+                <h1 id="pbs-title">Personal Bests</h1>
+                <p id="pbs-description">Track and manage your personal best times</p>
+            </div>
+
+            <div class="pbs-container">
+                <button id="add-pb-btn" class="btn primary">
+                    <i class="fas fa-plus"></i>
+                    <span id="add-pb-text">Add New PB</span>
+                </button>
+
+                <div id="pbs-list" class="pbs-list">
+                    <p id="no-pbs-message" class="no-pbs-message">No personal bests recorded yet</p>
+                </div>
+            </div>
+
+            <div id="pb-modal" class="modal" style="display: none;">
+                <div class="modal-content">
+                    <h2 id="modal-title">Add Personal Best</h2>
+                    <form id="pb-form">
+                        <div class="form-group">
+                            <label for="pb-event">Event</label>
+                            <input type="text" id="pb-event" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="pb-date">Date Achieved</label>
+                            <input type="date" id="pb-date" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="pb-location">Location</label>
+                            <input type="text" id="pb-location" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="pb-competition">Competition</label>
+                            <input type="text" id="pb-competition">
+                        </div>
+                        <div class="form-actions">
+                            <button type="button" class="btn secondary" id="cancel-pb">Cancel</button>
+                            <button type="submit" class="btn primary">Save</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script type="module" src="script.js"></script>
+</body>
+</html>

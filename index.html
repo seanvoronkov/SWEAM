@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SwimCalc | Swimming Points Calculator</title>
+    <link rel="stylesheet" href="styles.css">
+    <script type="module" src="translations.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <nav class="navbar">
+            <div class="logo">
+                <i class="fas fa-swimming-pool"></i>
+                <span>SwimCalc</span>
+            </div>
+            <ul class="nav-links">
+                <li class="active"><a href="index.html">Home</a></li>
+                <li><a href="#calculator">Calculator</a></li>
+                <li><a href="#about">About</a></li>
+            </ul>
+            <div class="nav-controls">
+                <select id="language-select" class="language-select">
+                    <option value="en">English</option>
+                    <option value="he">עברית</option>
+                </select>
+                <div class="theme-toggle">
+                    <i class="fas fa-moon"></i>
+                </div>
+            </div>
+        </nav>
+
+        <header class="hero">
+            <div class="hero-content">
+                <h1>Swimming Points Calculator</h1>
+                <p>Track your swimming performance and compare against world records</p>
+                <a href="#calculator" class="btn primary-btn">Get Started</a>
+            </div>
+            <div class="hero-image">
+                <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                    <path fill="#4361EE" d="M45.7,-77.2C58.9,-69.3,69.2,-55.5,76.1,-40.5C83,-25.5,86.5,-9.3,83.9,5.5C81.3,20.3,72.6,33.7,62.4,44.7C52.1,55.7,40.3,64.3,27.1,70.1C13.9,75.9,-0.7,78.9,-15.4,76.6C-30.1,74.3,-44.9,66.7,-56.2,55.5C-67.5,44.3,-75.3,29.5,-78.9,13.4C-82.5,-2.7,-81.9,-20.1,-74.9,-34.1C-67.9,-48.1,-54.5,-58.7,-40.4,-66.1C-26.3,-73.5,-11.6,-77.7,2.9,-82.5C17.5,-87.3,32.5,-85.1,45.7,-77.2Z" transform="translate(100 100)" />
+                </svg>
+            </div>
+        </header>
+
+        <section id="calculator" class="calculator-section">
+            <div class="section-header">
+                <h2>Points Calculator</h2>
+                <p>Enter your swimming time to calculate points</p>
+            </div>
+            
+            <div class="calculator-card">
+                <div class="calculator-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="gender">Gender</label>
+                            <select id="gender" class="form-control">
+                                <option value="male">Male</option>
+                                <option value="female">Female</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="course">Course</label>
+                            <select id="course" class="form-control">
+                                <option value="lcm">Long Course (50m)</option>
+                                <option value="scm">Short Course (25m)</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="stroke">Stroke</label>
+                            <select id="stroke" class="form-control">
+                                <option value="freestyle">Freestyle</option>
+                                <option value="backstroke">Backstroke</option>
+                                <option value="breaststroke">Breaststroke</option>
+                                <option value="butterfly">Butterfly</option>
+                                <option value="im">Individual Medley</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="distance">Distance</label>
+                            <select id="distance" class="form-control">
+                                <option value="50">50m</option>
+                                <option value="100">100m</option>
+                                <option value="200">200m</option>
+                                <option value="400">400m</option>
+                                <option value="800">800m</option>
+                                <option value="1500">1500m</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="time">Time (MM:SS.HH)</label>
+                        <input type="text" id="time" class="form-control" placeholder="e.g., 1:05.45">
+                    </div>
+                    
+                    <button id="calculate-btn" class="btn primary-btn">Calculate Points</button>
+                </div>
+                
+                <div class="result-container">
+                    <div class="result-card">
+                        <div class="points-display" id="points-display">--</div>
+                        <p>Points</p>
+                    </div>
+                    
+                    <div class="comparison-info">
+                        <div class="comparison-item">
+                            <span class="label">World Record:</span>
+                            <span class="value" id="world-record">--</span>
+                        </div>
+                        <div class="comparison-item">
+                            <span class="label">% of World Record:</span>
+                            <span class="value" id="percentage">--</span>
+                        </div>
+                    </div>
+                    
+                    <div class="save-result">
+                        <button id="save-btn" class="btn secondary-btn">Save Result</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="pbs" class="pbs-section">
+            <div class="section-header">
+                <h2 id="pbs-title">Personal Bests</h2>
+                <p id="pbs-description">Track and manage your personal best times</p>
+            </div>
+            
+            <div class="pbs-content">
+                <button id="add-pb-btn" class="btn primary-btn">
+                    <i class="fas fa-plus"></i>
+                    <span id="add-pb-text">Add New PB</span>
+                </button>
+                
+                <div id="pbs-list" class="pbs-list">
+                    <p class="no-pbs-message" id="no-pbs-message">No personal bests recorded yet</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="about-section">
+            <div class="section-header">
+                <h2 id="about-title">About Swimming Points</h2>
+                <p id="about-description">Understanding how swimming points are calculated</p>
+            </div>
+            
+            <div class="about-content">
+                <div class="about-card">
+                    <div class="card-icon">
+                        <i class="fas fa-calculator"></i>
+                    </div>
+                    <h3 id="calculation-title">How Points Are Calculated</h3>
+                    <p id="calculation-description">Swimming points are calculated using the formula: 1000 × (Base Time / Actual Time)³. The base time is derived from the current world record for each event.</p>
+                </div>
+                
+                <div class="about-card">
+                    <div class="card-icon">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <h3 id="world-records-title">World Records</h3>
+                    <p id="world-records-description">Our calculator uses the latest world records as base times for calculating points, ensuring accurate and up-to-date comparisons.</p>
+                </div>
+                
+                <div class="about-card">
+                    <div class="card-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3 id="progress-title">Track Your Progress</h3>
+                    <p id="progress-description">Use this calculator to track your swimming performance over time and set goals based on international standards.</p>
+                </div>
+            </div>
+        </section>
+
+        <footer class="footer">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <i class="fas fa-swimming-pool"></i>
+                    <span>SwimCalc</span>
+                </div>
+                <p>A simple tool for swimmers to calculate performance points</p>
+                <div class="footer-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Use</a>
+                </div>
+                <p class="copyright">&copy; 2023 SwimCalc. All rights reserved.</p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

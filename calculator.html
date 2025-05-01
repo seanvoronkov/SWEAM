@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SwimCalc | Points Calculator</title>
+    <link rel="stylesheet" href="styles.css">
+    <script type="module" src="translations.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <nav class="navbar">
+            <div class="logo">
+                <i class="fas fa-swimming-pool"></i>
+                <span>SwimCalc</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="about.html">About</a></li>
+                <li><a href="calculator.html" class="active">Calculator</a></li>
+                <li><a href="personal-bests.html">Personal Bests</a></li>
+            </ul>
+            <div class="nav-controls">
+                <select id="language-select" class="language-select">
+                    <option value="en">English</option>
+                    <option value="he">עברית</option>
+                </select>
+                <div class="theme-toggle">
+                    <i class="fas fa-moon"></i>
+                </div>
+            </div>
+        </nav>
+
+        <main class="calculator-section">
+            <div class="section-header">
+                <h1 id="calculator-title">Points Calculator</h1>
+                <p id="calculator-description">Enter your swimming time to calculate points</p>
+            </div>
+
+            <div class="calculator-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="gender">Gender</label>
+                        <select id="gender">
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="course">Course</label>
+                        <select id="course">
+                            <option value="lcm">Long Course (50m)</option>
+                            <option value="scm">Short Course (25m)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="stroke">Stroke</label>
+                        <select id="stroke">
+                            <option value="freestyle">Freestyle</option>
+                            <option value="backstroke">Backstroke</option>
+                            <option value="breaststroke">Breaststroke</option>
+                            <option value="butterfly">Butterfly</option>
+                            <option value="im">Individual Medley</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="distance">Distance</label>
+                        <select id="distance">
+                            <option value="50">50m</option>
+                            <option value="100">100m</option>
+                            <option value="200">200m</option>
+                            <option value="400">400m</option>
+                            <option value="800">800m</option>
+                            <option value="1500">1500m</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="time">Time (MM:SS.HH)</label>
+                        <input type="text" id="time" placeholder="e.g., 1:05.45">
+                    </div>
+                </div>
+
+                <button id="calculate-btn" class="btn primary">Calculate Points</button>
+            </div>
+
+            <div class="results-section" style="display: none;">
+                <div class="comparison-info">
+                    <div class="comparison-item">
+                        <span class="label">World Record:</span>
+                        <span id="world-record" class="value">00:00.00</span>
+                    </div>
+                    <div class="comparison-item">
+                        <span class="label">Your Points:</span>
+                        <span id="points" class="value">0</span>
+                    </div>
+                    <div class="comparison-item">
+                        <span class="label">% of World Record</span>
+                        <span id="percentage" class="value">0%</span>
+                    </div>
+                </div>
+                <button id="save-btn" class="btn secondary">Save Result</button>
+            </div>
+        </main>
+    </div>
+
+    <script type="module" src="script.js"></script>
+</body>
+</html>
