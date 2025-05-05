@@ -1,59 +1,85 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="he" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Swimming Analytics</title>
-  <link rel="stylesheet" href="styles.css">
-  <script type="module" src="script.js" defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Swimming Hub</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/main.css">
 </head>
 <body>
-  <nav class="navbar">
-    <div class="nav-container">
-      <a href="index.html" class="nav-logo" data-i18n="home">Home</a>
-      <ul class="nav-links">
-        <li><a href="calculator.html" data-i18n="calculator">FINA Calculator</a></li>
-        <li><a href="personal-bests.html" data-i18n="personalBests">Personal Bests</a></li>
-      </ul>
-      <div class="controls">
-        <button class="theme-toggle" data-i18n="toggleTheme">Toggle theme</button>
-        <button class="lang-toggle" data-i18n="toggleLang">עברית</button>
-      </div>
-    </div>
-  </nav>
-
-  <main class="main-content">
-    <div class="container">
-      <div class="hero-section card">
-        <h1 class="hero-title" data-i18n="welcome">Welcome to Swimming Analytics</h1>
-        <p class="hero-subtitle" data-i18n="welcomeDesc">Your comprehensive swimming performance tracking solution</p>
-        <div class="hero-wave">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="var(--accent-color)" fill-opacity="0.1" d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,122.7C672,117,768,139,864,138.7C960,139,1056,117,1152,106.7C1248,96,1344,96,1392,96L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>
+    <!-- Loader -->
+    <div class="loader-container">
+        <div class="loader">
+            <div class="wave"></div>
+            <div class="wave"></div>
+            <div class="wave"></div>
         </div>
-      </div>
-
-      <div class="features-section">
-        <h2 class="section-title" data-i18n="features">Features</h2>
-        <div class="feature-grid">
-          <div class="feature-card card">
-            <div class="feature-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-            </div>
-            <h3 data-i18n="finaCalc">FINA Points Calculator</h3>
-            <p data-i18n="finaCalcDesc">Calculate your FINA points based on your swimming times</p>
-            <a href="calculator.html" class="btn">Try Calculator</a>
-          </div>
-          <div class="feature-card card">
-            <div class="feature-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20v-6M6 20V10M18 20V4"></path></svg>
-            </div>
-            <h3 data-i18n="pbTracker">Personal Best Tracker</h3>
-            <p data-i18n="pbTrackerDesc">Keep track of your swimming achievements and progress</p>
-            <a href="personal-bests.html" class="btn">View Records</a>
-          </div>
-        </div>
-      </div>
     </div>
-  </main>
+    
+    <!-- Rest of the content -->
+    <div class="wave-container">
+        <div class="wave"></div>
+        <div class="wave"></div>
+        <div class="wave"></div>
+    </div>
+
+    <button class="menu-toggle" id="menuToggle">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <aside class="sidenav">
+        <div class="sidenav-header">
+            <div class="logo">
+                <i class="fas fa-swimming-pool"></i>
+                <span>Swimming Hub</span>
+            </div>
+        </div>
+        <nav class="nav-links">
+            <a href="index.html" class="active">
+                <i class="fas fa-home"></i>
+                <span>דף הבית</span>
+            </a>
+            <a href="pages/calculator.html">
+                <i class="fas fa-calculator"></i>
+                <span>מחשבון FINA</span>
+            </a>
+            <a href="pages/about.html">
+                <i class="fas fa-info-circle"></i>
+                <span>אודות</span>
+            </a>
+        </nav>
+    </aside>
+
+    <main class="main">
+        <div class="hero">
+            <!-- מחקנו את השורה של השחיין מכאן -->
+            <h1>ברוכים הבאים ל-Swimming Hub</h1>
+            <p>המקום המושלם לחישובי FINA ומידע על שחייה</p>
+        </div>
+
+        <div class="features">
+            <div class="feature-card ripple">
+                <div class="card-icon">
+                    <i class="fas fa-calculator"></i>
+                </div>
+                <h2>מחשבון FINA Points</h2>
+                <p>חשב בקלות את הניקוד הבינלאומי או זמני המטרה שלך</p>
+                <a href="pages/calculator.html" class="btn">התחל לחשב</a>
+            </div>
+
+            <div class="feature-card ripple">
+                <div class="card-icon">
+                    <i class="fas fa-book-open"></i>
+                </div>
+                <h2>מידע ומדריכים</h2>
+                <p>גישה למידע מקיף, טבלאות השוואה וטיפים מקצועיים</p>
+                <a href="pages/about.html" class="btn">קרא עוד</a>
+            </div>
+        </div>
+    </main>
+
+    <script src="scripts/main.js"></script>
 </body>
 </html>
