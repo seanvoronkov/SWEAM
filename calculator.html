@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>מחשבון FINA - Swimming Hub</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/calculator.css">
+</head>
+<body>
+    <!-- Standard Navigation Elements -->
+    <button class="menu-toggle" id="menuToggle">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <aside class="sidenav">
+        <div class="sidenav-header">
+            <div class="logo">
+                <i class="fas fa-swimming-pool"></i>
+                <span>Swimming Hub</span>
+            </div>
+        </div>
+        <nav class="nav-links">
+            <a href="../index.html">
+                <i class="fas fa-home"></i>
+                <span>דף הבית</span>
+            </a>
+            <a href="calculator.html" class="active">
+                <i class="fas fa-calculator"></i>
+                <span>מחשבון FINA</span>
+            </a>
+            <a href="about.html">
+                <i class="fas fa-info-circle"></i>
+                <span>אודות</span>
+            </a>
+        </nav>
+    </aside>
+
+    <main class="main">
+        <div class="calculator-choice">
+            <h1>מחשבון FINA</h1>
+            <div class="choice-cards">
+                <a href="calc-points.html" class="choice-card">
+                    <div class="card-icon">
+                        <i class="fas fa-stopwatch"></i>
+                    </div>
+                    <h2>חישוב ניקוד לפי זמן</h2>
+                    <p>הכנס את התוצאה שלך וקבל את הניקוד המתאים</p>
+                </a>
+
+                <a href="calc-time.html" class="choice-card">
+                    <div class="card-icon">
+                        <i class="fas fa-calculator"></i>
+                    </div>
+                    <h2>חישוב זמן לפי ניקוד</h2>
+                    <p>הכנס את הניקוד הרצוי וקבל את זמן המטרה</p>
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <script src="../scripts/main.js"></script>
+</body>
+</html>
